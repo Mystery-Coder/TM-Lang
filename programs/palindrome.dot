@@ -1,0 +1,25 @@
+digraph TuringMachine {
+    rankdir=LR;
+    node [shape = circle];
+    "done" [shape = doublecircle, color=green];
+    "fail" [shape = doublecircle, color=red];
+    entry [shape = point];
+    entry -> "start";
+    "start" -> "move_right_end_1_q" [label = "0 / BLANK, R"];
+    "move_right_end_1_q" -> "move_right_end_1_q" [label = "0 / 0, R\n1 / 1, R"];
+    "move_right_end_1_q" -> "q1" [label = "BLANK / BLANK, L"];
+    "start" -> "move_right_end_2_q" [label = "1 / BLANK, R"];
+    "move_right_end_2_q" -> "move_right_end_2_q" [label = "0 / 0, R\n1 / 1, R"];
+    "move_right_end_2_q" -> "q2" [label = "BLANK / BLANK, L"];
+    "start" -> "done" [label = "BLANK / BLANK, S"];
+    "q1" -> "move_left_end_3_q" [label = "0 / BLANK, L"];
+    "move_left_end_3_q" -> "move_left_end_3_q" [label = "0 / 0, L\n1 / 1, L"];
+    "move_left_end_3_q" -> "start" [label = "BLANK / BLANK, R"];
+    "q1" -> "fail" [label = "1 / 1, S"];
+    "q1" -> "done" [label = "BLANK / BLANK, S"];
+    "q2" -> "move_left_end_4_q" [label = "1 / BLANK, L"];
+    "move_left_end_4_q" -> "move_left_end_4_q" [label = "0 / 0, L\n1 / 1, L"];
+    "move_left_end_4_q" -> "start" [label = "BLANK / BLANK, R"];
+    "q2" -> "fail" [label = "0 / 0, S"];
+    "q2" -> "done" [label = "BLANK / BLANK, S"];
+}
