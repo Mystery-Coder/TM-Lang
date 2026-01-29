@@ -117,3 +117,10 @@ The compiler generates C code to simulate a Turing Machine and a GraphViz dot fi
 - **Python 3.x**: The compiler is written in Python and requires Python 3 to run.
 - **GraphViz**: Required for generating SVG diagrams from the dot files. Install from [graphviz.org](https://graphviz.org/download/).
 - **C Compiler**: A C compiler (e.g., GCC) is needed to compile the generated `simulation.c` file into an executable.
+
+---
+
+# Todo List
+
+- [ ] Rewrite compiler in Go
+- [ ] Sandbox in Nextjs
