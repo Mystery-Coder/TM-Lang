@@ -67,7 +67,7 @@ int main() {{
 
     while(1) {{
         print_tape();
-        system("sleep 0.7");
+        system("sleep 0.3");
 
         if (current_state == ACCEPT_STATE) {{ printf("\\n\\nACCEPTED!\\n"); return 0; }}
         if (current_state == REJECT_STATE) {{ printf("\\n\\nREJECTED!\\n"); return 1; }}
