@@ -64,11 +64,11 @@ class Lexer:
             (TokenType.DIRECTION, r'\b(L|R|S)\b'),
 
             # Identifiers (Must come BEFORE Symbol to catch 'q0')
-            # IDs can only start with letters not '_'
-            (TokenType.ID,        r'\b[a-zA-Z][a-zA-Z0-9_]*\b'), 
+            # IDs can only start with letters not '_' and must be minimum length 2
+            (TokenType.ID,        r'\b[a-zA-Z][a-zA-Z0-9_]+\b'), 
             
-            # Symbols (Digits, wildcard, underscore)
-            (TokenType.SYMBOL,    r'[0-9*_]'), 
+            # Symbols (Digits, underscore, single letter)
+            (TokenType.SYMBOL,    r'[0-9a-zA-Z_]'), 
             
             # Formatting & Skippables
             (TokenType.NEWLINE,   r'\n'),

@@ -41,11 +41,9 @@ class Parser:
         
        
         if self.current_token.type == TokenType.SECTION and self.current_token.value == "MACROS:":
-            self.consume(TokenType.SECTION)
             self.parse_macros()
 
         if self.current_token.type == TokenType.SECTION and self.current_token.value == "MAIN:":
-            self.consume(TokenType.SECTION)
             self.parse_main()
         else:
             raise Exception("Syntax Error: Missing 'MAIN:' section")
@@ -68,7 +66,10 @@ class Parser:
 
     def parse_macros(self):
         print("Parsing Macros...")
+        self.consume(TokenType.SECTION)
+ 
         # Loop until we hit the 'MAIN:' section
+
         while self.current_token.type != TokenType.SECTION:
             self.consume(TokenType.KEYWORD) # Expect 'DEF'
             macro_name = self.consume(TokenType.ID)
@@ -84,6 +85,8 @@ class Parser:
 
     def parse_main(self):
         print("Parsing Main Logic...")
+        self.consume(TokenType.SECTION)
+
         while self.current_token.type != TokenType.EOF:
             self.ir["main"].append(self.parse_transition())
 
