@@ -71,8 +71,8 @@ func (lexer *Lexer) initLexer(src string) {
 		{ARROW, regexp.MustCompile(`^->`)},
 		{COMMA, regexp.MustCompile(`^,`)},
 		{COLON, regexp.MustCompile(`^:`)},
-		{DIRECTION, regexp.MustCompile(`\b(L|R|S)\b`)}, //L R S are reserved
-		{ID, regexp.MustCompile(`^[a-zA-Z][a-zA-Z0-9_]*`)},
+		{DIRECTION, regexp.MustCompile(`\b(L|R|S)\b`)},     //L R S are reserved
+		{ID, regexp.MustCompile(`^[a-zA-Z][a-zA-Z0-9_]+`)}, // Minimum 2 chars for state ID, must start with letter
 		{SYMBOL, regexp.MustCompile(`^[0-9a-zA-Z_]`)},
 		{NEWLINE, regexp.MustCompile(`^\n`)},
 		{SKIP, regexp.MustCompile(`^[ \t\r]+`)},

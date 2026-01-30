@@ -5,12 +5,13 @@ import (
 	"fmt"
 )
 
+type Meta struct {
+	Start  string
+	Accept string
+	Reject string
+}
 type IntermediateRepresention struct {
-	Meta struct {
-		Start  string
-		Accept string
-		Reject string
-	}
+	Meta Meta
 
 	Macros map[string][]Transition
 
