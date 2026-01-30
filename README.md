@@ -19,8 +19,8 @@ A source file (.tm) is processed sequentially and consists of three required sec
 | SECTION | (CONFIG:\|MACROS:\|MAIN:) | Section Headers                |
 | KEYWORD | START:, ACCEPT:, REJECT:  | Configuration Keys             |
 | LOGIC   | DEF, CALL, RETURN         | Macro Logic                    |
-| ID      | [a-zA-Z][a-zA-Z0-9_]\*    | State or Macro Names           |
-| SYMBOL  | 0, 1, \_                  | Tape Alphabet                  |
+| ID      | [a-zA-Z][a-zA-Z0-9_]+     | State or Macro Names           |
+| SYMBOL  | [a-zA-Z0-9_]              | Tape Alphabet                  |
 | DIR     | L, R, S                   | Directions (Left, Right, Stay) |
 | ARROW   | ->                        | Transition Operator            |
 
@@ -122,5 +122,19 @@ The compiler generates C code to simulate a Turing Machine and a GraphViz dot fi
 
 # Todo List
 
-- [ ] Rewrite compiler in Go
+- [x] Rewrite compiler in Go
 - [ ] Sandbox in Nextjs
+
+# WASM Build
+
+## Server Side
+
+```bash
+GOOS=wasip1 GOARCH=wasm go build -o tmlang-server-compiler.wasm .
+```
+
+## Client Side
+
+```bash
+GOOS=js GOARCH=wasm go build -o tmlang-client-compiler.wasm .
+```
