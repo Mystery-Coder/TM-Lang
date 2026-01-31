@@ -120,10 +120,16 @@ The compiler generates C code to simulate a Turing Machine and a GraphViz dot fi
 
 ---
 
-# Todo List
+# Live Editor
 
-- [x] Rewrite compiler in Go
-- [ ] Sandbox in Nextjs
+[TM-Lang Editor](https://tmlang-editor.vercel.app/)
+
+# CLI Build
+
+```bash
+    cd tmlang-go-compiler
+    go build .
+```
 
 # WASM Build
 
@@ -138,3 +144,8 @@ GOOS=wasip1 GOARCH=wasm go build -o tmlang-server-compiler.wasm .
 ```bash
 GOOS=js GOARCH=wasm go build -o tmlang-client-compiler.wasm .
 ```
+
+# Todo List
+
+- [x] Rewrite compiler in Go
+- [x] Sandbox in Nextjs
